@@ -4,6 +4,7 @@ use to_binary::BinaryString;
 
 //[compressed][0/1]                      [0] [0  / 1]; [1][0 / 1]
 // const LOK_TYPES: [[&'static str; 2]; 2] = [["lol", "ok"], ["l", "k"]];
+#[derive(Clone, Copy)]
 pub enum LokType {
     Compressed,
     Uncompressed,
