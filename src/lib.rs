@@ -61,14 +61,7 @@ fn from_binary_string_to_utf8_string(bin_str: String) -> io::Result<String> {
     let mut bin_str = bin_str;
     while bin_str.len() >= 8 {
         let (first, second) = bin_str.split_at(8);
-        let byte;
-        match from_string_8bits_to_byte(first) {
-            Ok(b) => byte = b,
-            Err(e) => {
-                eprintln!("Error converting lok to string: {}", e);
-                panic!("{}", e);
-            }
-        }
+        let byte =  from_string_8bits_to_byte(first)?;
         bytes.push(byte);
         bin_str = second.to_owned();
     }
